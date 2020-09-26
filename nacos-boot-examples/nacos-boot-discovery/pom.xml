@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>nacos-boot-discovery</artifactId>
+    <packaging>pom</packaging>
+
 
     <properties>
         <nacos-discovery-spring-boot.version>0.2.1</nacos-discovery-spring-boot.version>
