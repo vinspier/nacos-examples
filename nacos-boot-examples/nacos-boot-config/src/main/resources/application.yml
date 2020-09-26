@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: nacos-boot-config
+nacos:
+  config:
+    server-addr: 96.45.191.190:8848
