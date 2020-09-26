@@ -11,6 +11,9 @@
 
     <artifactId>nacos-boot-examples</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>nacos-boot-discovery</module>
+    </modules>
 
     <!-- jar version manager -->
     <properties>
