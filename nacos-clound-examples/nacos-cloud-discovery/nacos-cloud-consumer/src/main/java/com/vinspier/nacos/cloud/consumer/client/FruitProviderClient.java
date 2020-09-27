@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @CreateDate: Created in 2020/9/26 22:59 <br>
  * @Author: <a href="fanxb@haibaobaoxian.cn">fxb</a>
  */
-@FeignClient(value = "nacos-cloud-provider")
+@FeignClient(value = "example")
 public interface FruitProviderClient {
 
     /**

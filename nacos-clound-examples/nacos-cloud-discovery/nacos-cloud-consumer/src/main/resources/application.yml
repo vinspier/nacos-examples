@@ -6,4 +6,5 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 96.45.191.190:8848
+        server-addr: 47.98.191.6:8848
+        namespace: test

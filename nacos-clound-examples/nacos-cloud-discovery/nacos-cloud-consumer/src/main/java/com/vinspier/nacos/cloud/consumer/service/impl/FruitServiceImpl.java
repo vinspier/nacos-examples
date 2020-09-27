@@ -1,6 +1,7 @@
-package com.vinspier.nacos.cloud.consumer.service;
+package com.vinspier.nacos.cloud.consumer.service.impl;
 
 import com.vinspier.nacos.cloud.consumer.client.FruitProviderClient;
+import com.vinspier.nacos.cloud.consumer.service.FruitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @Author: <a href="fanxb@haibaobaoxian.cn">fxb</a>
  */
 @Service
-public class FruitServiceImpl implements FruitService{
+public class FruitServiceImpl implements FruitService {
 
     @Autowired
     private FruitProviderClient fruitProviderClient;
