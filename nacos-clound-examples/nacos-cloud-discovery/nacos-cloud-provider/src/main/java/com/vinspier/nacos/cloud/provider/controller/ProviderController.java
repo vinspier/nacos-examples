@@ -1,10 +1,11 @@
 package com.vinspier.nacos.cloud.provider.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.vinspier.nacos.cloud.provider.service.IUploadFileService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,13 +20,30 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/provider")
+@RefreshScope
 public class ProviderController {
 
     private static final List<String> fruitNames = Arrays.asList("apple","orange","banana","pea");
 
+    @Value("${spring.datasource:213}")
+    private String dataSource;
+
+    @Autowired
+    private IUploadFileService uploadFileService;
+
     @GetMapping("/getFruitNames")
     public String getFruitNames(){
         return JSONObject.toJSONString(fruitNames);
+    }
+
+    @GetMapping("/getDataSource")
+    public String getDataSource(){
+        return dataSource;
+    }
+
+    @GetMapping("/getInfoByFileId/{fileId}")
+    public String getInfoByFileId(@PathVariable String fileId){
+        return JSONObject.toJSONString(uploadFileService.getInfoByFileId(fileId));
     }
 
 }
