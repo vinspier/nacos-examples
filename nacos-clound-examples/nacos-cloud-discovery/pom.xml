@@ -3,25 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>nacos-examples</artifactId>
+        <artifactId>nacos-clound-examples</artifactId>
         <groupId>com.vinspier.example</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nacos-boot-examples</artifactId>
+    <artifactId>nacos-cloud-discovery</artifactId>
+
     <packaging>pom</packaging>
     <modules>
-        <module>nacos-boot-discovery</module>
-        <module>nacos-boot-upload</module>
+        <module>nacos-cloud-provider</module>
     </modules>
 
-    <!-- jar version manager -->
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
-        <spring-boot.version>2.1.13.RELEASE</spring-boot.version>
         <mybatis.starter.version>1.3.2</mybatis.starter.version>
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <mybatis-plus-extension.version>3.3.2</mybatis-plus-extension.version>
@@ -31,19 +26,23 @@
         <pageHelper.starter.version>1.2.3</pageHelper.starter.version>
         <lombok.version>1.16.22</lombok.version>
     </properties>
-
-    <!-- dependencyManagement -->
     <dependencyManagement>
         <dependencies>
-
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>0.2.2.RELEASE</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>0.2.2.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>1.1.0</version>
+            </dependency>
             <!-- Druid连接池 -->
             <dependency>
                 <groupId>com.github.drtrang</groupId>
@@ -86,5 +85,21 @@
 
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
