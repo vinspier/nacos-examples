@@ -1,7 +1,7 @@
-package com.vinspier.nacos.cloud.provider.service;
+package com.vinspier.upload.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.vinspier.nacos.cloud.provider.model.UploadFile;
+import com.vinspier.upload.model.UploadFile;
 
 /**
  * vinspier 版权所有 © Copyright 2018<br>

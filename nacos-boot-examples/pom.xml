@@ -30,6 +30,8 @@
         <mysql.version>5.1.37</mysql.version>
         <pageHelper.starter.version>1.2.3</pageHelper.starter.version>
         <lombok.version>1.16.22</lombok.version>
+        <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
+        <nacos-discovery-spring-boot.version>0.2.1</nacos-discovery-spring-boot.version>
     </properties>
 
     <!-- dependencyManagement -->
@@ -42,6 +44,12 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-starter</artifactId>
+                <version>${nacos-config-spring-boot.version}</version>
             </dependency>
 
             <!-- Druid连接池 -->

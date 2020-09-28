@@ -1,10 +1,10 @@
-package com.vinspier.nacos.cloud.provider.service.impl;
+package com.vinspier.upload.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.vinspier.nacos.cloud.provider.mapper.UploadFileMapper;
-import com.vinspier.nacos.cloud.provider.model.UploadFile;
-import com.vinspier.nacos.cloud.provider.service.IUploadFileService;
+import com.vinspier.upload.mapper.UploadFileMapper;
+import com.vinspier.upload.model.UploadFile;
+import com.vinspier.upload.service.IUploadFileService;
 import org.springframework.stereotype.Service;
 
 /**

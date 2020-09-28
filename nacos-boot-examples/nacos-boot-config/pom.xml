@@ -11,11 +11,6 @@
 
     <artifactId>nacos-boot-config</artifactId>
 
-    <!-- jar version manager -->
-    <properties>
-        <nacos-config-spring-boot.version>0.2.1</nacos-config-spring-boot.version>
-    </properties>
-
     <dependencies>
 
         <dependency>
@@ -26,7 +21,6 @@
         <dependency>
             <groupId>com.alibaba.boot</groupId>
             <artifactId>nacos-config-spring-boot-starter</artifactId>
-            <version>${nacos-config-spring-boot.version}</version>
         </dependency>
 
     </dependencies>
