@@ -21,7 +21,7 @@ public class UploadFileServiceImpl extends ServiceImpl<UploadFileMapper, UploadF
     @Override
     public UploadFile getInfoByFileId(String fileId) {
         LambdaQueryWrapper<UploadFile> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(UploadFile::getId,fileId);
+        wrapper.eq(UploadFile::getFileId,fileId);
         return super.getOne(wrapper);
     }
 }

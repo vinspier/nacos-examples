@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @MapperScan("com.vinspier.upload.mapper")
-@NacosPropertySource(dataId = "upload-service-test.yaml", autoRefreshed = true)
+@NacosPropertySource(dataId = "upload-service", autoRefreshed = true)
 public class UploadApplication {
 
     public static void main(String[] args) {

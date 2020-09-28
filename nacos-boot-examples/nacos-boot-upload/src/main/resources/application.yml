@@ -8,3 +8,4 @@ nacos:
   config:
     server-addr: 47.98.191.6:8848
     namespace: test
+    encode: utf-8
