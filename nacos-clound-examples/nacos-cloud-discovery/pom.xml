@@ -14,6 +14,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>nacos-cloud-provider</module>
+        <module>nacos-cloud-consumer</module>
     </modules>
 
     <properties>

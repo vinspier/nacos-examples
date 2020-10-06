@@ -13,6 +13,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/nacos-cloud-discovery/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos-clound-examples/nacos-cloud-sentinel/pom.xml" />
       </set>
     </option>
   </component>

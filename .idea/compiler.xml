@@ -6,12 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="nacos-boot-config" />
-        <module name="nacos-cloud-consumer" />
-        <module name="nacos-boot-discovery" />
         <module name="nacos-boot-upload" />
+        <module name="nacos-cloud-consumer" />
         <module name="nacos-cloud-provider" />
+        <module name="nacos-cloud-sentinel" />
+        <module name="nacos-boot-discovery" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="nacos-boot-config" target="1.8" />
+      <module name="nacos-cloud-sentinel" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
