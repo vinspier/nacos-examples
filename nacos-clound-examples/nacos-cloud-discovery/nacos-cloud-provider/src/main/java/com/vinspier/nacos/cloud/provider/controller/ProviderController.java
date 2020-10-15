@@ -25,8 +25,11 @@ public class ProviderController {
 
     private static final List<String> fruitNames = Arrays.asList("apple","orange","banana","pea");
 
-    @Value("${spring.datasource:213}")
+    @Value("${spring.datasource.type:213}")
     private String dataSource;
+
+    @Value("${customize.test}")
+    private String customizeTest;
 
     @Autowired
     private IUploadFileService uploadFileService;
@@ -45,5 +48,11 @@ public class ProviderController {
     public String getInfoByFileId(@PathVariable String fileId){
         return JSONObject.toJSONString(uploadFileService.getInfoByFileId(fileId));
     }
+
+    @RequestMapping("/getCustomizeTest")
+    public String getCustomizeTest(){
+        return customizeTest;
+    }
+
 
 }
