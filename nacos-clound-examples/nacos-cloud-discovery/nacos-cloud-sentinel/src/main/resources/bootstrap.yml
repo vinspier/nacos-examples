@@ -1,0 +1,54 @@
+﻿common:
+  nacos:
+    server-addr: 96.45.191.190:8848
+
+server:
+  port: 8003
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: sentinel-service
+  profiles:
+    active: '@profiles.active@'
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${common.nacos.server-addr}
+      config:
+        server-addr: ${common.nacos.server-addr}
+    sentinel:
+      datasource:
+        ds2:
+          nacos:
+            server-addr: ${common.nacos.server-addr}
+            data-type: json
+            rule-type: flow
+
+#添加sentinel依赖后 暴露/actuator/sentinel端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+---
+spring:
+  profiles: test
+  cloud:
+    nacos:
+      discovery:
+        namespace: ddf6f890-f0e6-4ca4-9411-852bbbacb2b4
+      config:
+        namespace: ddf6f890-f0e6-4ca4-9411-852bbbacb2b4
+        ext-config:
+          - data-id: mysql-common.yaml
+          - data-id: mybatis.yaml
+          - data-id: customize.yaml
+    sentinel:
+      datasource:
+        ds2:
+          nacos:
+            data-id: sentinel-service

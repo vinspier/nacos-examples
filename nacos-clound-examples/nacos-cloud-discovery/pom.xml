@@ -29,10 +29,15 @@
         <alibaba.nacos.client.version>1.1.0</alibaba.nacos.client.version>
         <alibaba.nacos.discovery.version>0.2.2.RELEASE</alibaba.nacos.discovery.version>
         <alibaba.nacos.config.version>0.2.2.RELEASE</alibaba.nacos.config.version>
-        <alibaba.nacos.sentinel.version>2.2.1.RELEASE</alibaba.nacos.sentinel.version>
+        <alibaba.nacos.sentinel.version>0.2.1.RELEASE</alibaba.nacos.sentinel.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -43,11 +48,11 @@
                 <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
                 <version>${alibaba.nacos.config.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-                <version>${alibaba.nacos.sentinel.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>-->
+<!--                <version>${alibaba.nacos.sentinel.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>com.alibaba.nacos</groupId>
                 <artifactId>nacos-client</artifactId>
