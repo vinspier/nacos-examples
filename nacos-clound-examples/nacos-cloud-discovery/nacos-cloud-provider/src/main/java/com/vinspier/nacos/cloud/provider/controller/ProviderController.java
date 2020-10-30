@@ -1,6 +1,7 @@
 package com.vinspier.nacos.cloud.provider.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.vinspier.nacos.cloud.provider.service.IUploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,7 +50,7 @@ public class ProviderController {
         return JSONObject.toJSONString(uploadFileService.getInfoByFileId(fileId));
     }
 
-    @RequestMapping("/getCustomizeTest")
+    @GetMapping("/getCustomizeTest")
     public String getCustomizeTest(){
         return customizeTest;
     }

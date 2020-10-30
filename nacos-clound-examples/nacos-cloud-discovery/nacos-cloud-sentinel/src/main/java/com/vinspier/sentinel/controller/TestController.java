@@ -1,5 +1,7 @@
 package com.vinspier.sentinel.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.vinspier.sentinel.fallback.TestFallback;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +23,18 @@ import javax.websocket.server.PathParam;
 public class TestController {
 
     @GetMapping("/getName/{name}")
+//    @SentinelResource(value="getName",blockHandler = "getName",blockHandlerClass = TestFallback.class)
+    @SentinelResource(value="getName",blockHandler = "getNameFallback",fallback = "getNameFallback")
     public String getName(@PathVariable String name){
         return name;
+    }
+
+    public String getNameFallback(){
+        return "顶不住了";
+    }
+
+    public String getNameBlock(){
+        return "顶不住了关闭";
     }
 
 }

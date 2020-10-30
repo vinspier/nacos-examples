@@ -19,12 +19,12 @@ spring:
       config:
         server-addr: ${common.nacos.server-addr}
     sentinel:
+      transport:
+        dashboard: localhost:8080
       datasource:
         ds2:
           nacos:
             server-addr: ${common.nacos.server-addr}
-            data-type: json
-            rule-type: flow
 
 #添加sentinel依赖后 暴露/actuator/sentinel端点
 management:
@@ -52,3 +52,6 @@ spring:
         ds2:
           nacos:
             data-id: sentinel-service
+            namespace: ddf6f890-f0e6-4ca4-9411-852bbbacb2b4
+            data-type: json
+            rule-type: flow

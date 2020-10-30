@@ -20,6 +20,12 @@ spring:
       discovery:
         server-addr: ${common.nacos.server-addr}
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
 ---
 spring:
   profiles: test
@@ -27,9 +33,12 @@ spring:
     nacos:
       config:
         namespace: ddf6f890-f0e6-4ca4-9411-852bbbacb2b4
-        ext-config:
-          - data-id: mysql-common.yaml
-          - data-id: mybatis.yaml
-          - data-id: customize.yaml
+        ext-config[0]:
+          data-id: mysql-common.yaml
+        ext-config[1]:
+          data-id: mybatis.yaml
+        ext-config[2]:
+          data-id: customize.yaml
+          refresh: true
       discovery:
         namespace: ddf6f890-f0e6-4ca4-9411-852bbbacb2b4
