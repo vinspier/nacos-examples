@@ -1,6 +1,7 @@
 package com.vinspier.sentinel.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.vinspier.sentinel.block.TestBlock;
 import com.vinspier.sentinel.fallback.TestFallback;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,15 +23,22 @@ import javax.websocket.server.PathParam;
 @RequestMapping("/test")
 public class TestController {
 
+
+    /**
+     * block 优先于 fallBack
+     * 若都未配置 会将 BlockException 直接抛出
+     * 会被 JVM 包装一层 UndeclaredThrowableException
+     *
+     * @param name
+     * @return
+     */
     @GetMapping("/getName/{name}")
-//    @SentinelResource(value="getName",blockHandler = "getName",blockHandlerClass = TestFallback.class)
-    @SentinelResource(value="getName",blockHandler = "getNameFallback",fallback = "getNameFallback")
+    //@SentinelResource(value="getName",blockHandler = "getName",blockHandlerClass = TestFallback.class)
+    @SentinelResource(value="getName",defaultFallback = "defaultFallback",fallback = "getName",fallbackClass = TestFallback.class)
+    //@SentinelResource(value="getName",blockHandler = "getNameFallback",fallback = "getNameFallback")
+    //@SentinelResource(value="getName",blockHandler = "getName",blockHandlerClass = TestBlock.class,defaultFallback = "defaultFallback",fallback = "getName",fallbackClass = TestFallback.class)
     public String getName(@PathVariable String name){
         return name;
-    }
-
-    public String getNameFallback(){
-        return "顶不住了";
     }
 
     public String getNameBlock(){
